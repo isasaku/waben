@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+<body>
+
+{% block main %}
+
+    <div class="sign">
+      <div class="container">
+        <h1><a href="#">弁当注文</a></h1>
+        {% include "_form.html" with submit_label="登録" %}
+      </div>
+    </div>
+{% endblock %}
+
+</body>

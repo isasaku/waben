@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>bento</title>
+    <link rel="stylesheet" href="{% static 'fix.css' %}">
+  </head>
+  <body>
+    {% include '_header.html' %}
+  </table>          
+  {% for list in object_list %}
+  <table class="list">
+      <tr><th>{{ list.month }}月</th></tr>        
+      <tr><td>{{ list.name }}さん</td></tr>
+      <tr class="sema"><td>{{ list.day1 }}</td></tr>
+      <tr class="sema"><td>{{ list.day2 }}</td></tr>
+      <tr class="sema"><td>{{ list.day3 }}</td></tr>
+      <tr class="sema"><td>{{ list.day4 }}</td></tr>
+      <tr class="sema"><td>{{ list.day5 }}</td></tr>
+      <tr class="sema"><td>{{ list.day6 }}</td></tr>
+      <tr class="sema"><td>{{ list.day7 }}</td></tr>
+      <tr class="sema"><td>{{ list.day8 }}</td></tr>
+      <tr class="sema"><td>{{ list.day9 }}</td></tr>
+      <tr class="sema"><td>{{ list.day10 }}</td></tr>
+      <tr class="sema"><td>{{ list.day11 }}</td></tr>
+      <tr class="sema"><td>{{ list.day12 }}</td></tr>
+      <tr class="sema"><td>{{ list.day13 }}</td></tr>
+      <tr class="sema"><td>{{ list.day14 }}</td></tr>
+      <tr class="sema"><td>{{ list.day15 }}</td></tr>
+      <tr class="sema"><td>{{ list.day16 }}</td></tr>
+      <tr class="sema"><td>{{ list.day17 }}</td></tr>
+      <tr class="sema"><td>{{ list.day18 }}</td></tr>
+      <tr class="sema"><td>{{ list.day19 }}</td></tr>
+      <tr class="sema"><td>{{ list.day20 }}</td></tr>
+      <tr class="sema"><td>{{ list.day21 }}</td></tr>
+      <tr class="sema"><td>{{ list.day22 }}</td></tr>
+      <tr class="sema"><td>{{ list.day23 }}</td></tr>
+      <tr class="sema"><td>{{ list.day24 }}</td></tr>
+      <tr class="sema"><td>{{ list.day25 }}</td></tr>
+      <tr class="sema"><td>{{ list.day26 }}</td></tr>
+      <tr class="sema"><td>{{ list.day27 }}</td></tr>
+      <tr class="sema"><td>{{ list.day28 }}</td></tr>
+      <tr class="sema"><td>{{ list.day29 }}</td></tr>
+      <tr class="sema"><td>{{ list.day30 }}</td></tr>
+      <tr class="sema"><td>{{ list.day31 }}</td></tr>
+    </table>
+    {% endfor %}
+    <table class="list1">
+      <tr><td>__</td>
+      </tr>        
+      <tr><td>__</td>
+      </tr>
+      {% for value in youbi.values %}
+      <tr class="sema">      
+        <td>{{ value }}</td>      
+      </tr>    
+      {% endfor %}
+    </table>
+
+    <table class="list1">
+      <tr><td>__</td>
+      </tr>        
+      <tr><td>__</td>
+      </tr>
+    {% for item in youbi %}
+      <tr class="sema"><td>{{ item }}日</td>
+      </tr>
+    {% endfor %}
+    </table>
+
+    <table class="list0">
+        <tr><td>__</td>
+        </tr>        
+        <tr><td>__</td>
+        </tr>
+      <form method="POST">
+        {% csrf_token %}
+    {% for item in youbi %}
+          <tr class="sema">
+          <td>
+            <input type="radio" name="day{{ item }}" value="日替わり">ひ
+            <input type="radio" name="day{{ item }}" value="こだわり">こ
+            <input type="radio" name="day{{ item }}" value="丼物">丼
+            <input type="radio" name="day{{ item }}" value="ラーメン">ラ
+            <input type="radio" name="day{{ item }}" value="うどん">う
+            <input type="radio" name="day{{ item }}" value="そば">そば
+            <input type="radio" name="day{{ item }}" value="欠食">欠
+            </td>                
+          </tr>
+    {% endfor %}
+      <table class="list3">
+          <tr>
+            <td><input class="fix" type=submit value="変更"></td>
+          </tr>
+      </table>
+        </form>
+      </table>
+
+  </body>
+</html>

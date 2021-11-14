@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>弁当</title>
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <script></script>
+  </head>
+  <body>
+    <header>
+        <div class="header-nav">                  
+            <p>ようこそ、{{ user }}さん</p>
+            <p><a href="{% url 'logout' %}">ログアウト</a></p>                   
+        </div>    
+    </header>
+
+    {% block main %}
+
+    <div class="sign">
+        <div class="container">
+          <h1><a href="#">弁当注文</a></h1>
+          <div class="panel">
+            <h2>ログイン</h2>
+            <form action="/login" method="post">
+              <p>名前</p>
+              <input type="text" name="name">
+              <p>パスワード</p>
+              <input type="password" name="password">
+              <input type="submit" value="ログイン">            
+            </form>
+            <button><a href="#">新規登録</a></button>
+          </div>
+        </div>
+      </div>
+
+    {% endblock %}
+
+    </body>
+  </html>

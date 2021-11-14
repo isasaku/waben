@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>bento</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script src="{% static 'index2.js' %}"></script>    
+  </head>
+  <body>
+    {% include '_header.html' %}           
+    <div class="wrapper">      
+      <!-- xxxx年xx月を表示 -->
+      <h1 id="header"></h1>
+      <div class="fix"><a href="{% url 'fix' %}">今月の修正</a></div>
+      <div class="fix_n"><a href="{% url 'fix2' %}">来月の修正</a></div>
+      <!-- ボタンクリックで月移動 -->
+      <div id="next-prev-button">
+        <a id="prev" href="{% url 'index' %}">‹前</a>
+        <a id="next" href="{% url 'next' %}">後›</a>
+      </div>
+      <!-- カレンダー -->
+      <form action="" method="POST">
+        {% csrf_token %}
+        <div id="calendar"></div>
+        <input class="save" type="submit" value="保存">
+      </form>
+      <h4>ひ：日替わり弁当　こ：こだわり　丼：丼物　ラ：ラーメン　う：うどん　そ：そば　欠：欠食</h4>    
+</div>
+</body>
+</html>
