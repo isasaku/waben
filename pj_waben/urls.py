@@ -18,7 +18,7 @@ from django.urls import path,include
 from waben import views
 from django.contrib.auth.decorators import login_required
 
-index_view = views.IndexView.as_view(template_name="registration/index.html")
+index_view = views.IndexView.as_view()
 
 urlpatterns = [
     path('detai/',views.DetaiView.as_view(),name='detai'),
