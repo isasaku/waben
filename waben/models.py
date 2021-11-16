@@ -6,6 +6,16 @@ class Oder(models.Model):
         User,
         on_delete=models.CASCADE
     )
+    username = models.CharField(
+        max_length=32,
+        blank=True,
+        null=True,
+    )
+    dining = models.CharField(
+        max_length=32,
+        blank=True,
+        null=True,
+    )
     month = models.IntegerField(
         blank=True,
         null=True,
