@@ -11,8 +11,9 @@
     <table class="total2">
       <tr><td>{{ dy }}日</td></tr>   
             
-    {% for list in object_list %}
-      <tr><td>{{ list.username }}さん</td>          
+    {% for list in object_list %}    
+      <tr><td>{{ list.dining }}</td> 
+          <td>{{ list.username }}さん</td>          
           <td>{{ list.day }}</td>          
           <td>{{ list.total }}</td>
           <td>個</td>

@@ -11,16 +11,15 @@
     <table class="total">
       <tbody>
         <tr><td>{{ dy }}日</td></tr>   
-            
     {% for list in object_list %}
-        <tr><td>{{ list.day }}</td>          
+      <tr><td>{{ list.dining }}</td>   
+          <td>{{ list.day }}</td>          
           <td>{{ list.total }}</td>
           <td>個</td>
         </tr>
     {% endfor %}
         <a href="{% url 'detai' %}">内訳</a>
       </tbody>
-
     </table>     
     <a class="logout" href="{% url 'logout' %}">ログアウト</a>
 </body>

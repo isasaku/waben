@@ -785,60 +785,83 @@ class TotalView(ListView):
         groupby4={}
         groupby5={}
         groupby6={}
-        group_by={}
         mn_list=[]
-        grby = od.values(d).annotate(total=Count(d))
+        grby = od.values(d,'dining').annotate(total=Count(d))
         #grbyはオブジェクト型要素の配列となり、変数を使用できないのでオブジェクト型を用意して入れ替える
         if len(grby)>=1:
             groupby=grby[0]
             groupby['day']=groupby[d]
-            group_by[groupby[d]]=groupby['total']
             mn_list.append(groupby)
         if len(grby)>=2:
             groupby1=grby[1]
             groupby1['day']=groupby1[d]
-            group_by[groupby1[d]]=groupby1['total']
             mn_list.append(groupby1)
-        else:
-            return mn_list
         if len(grby)>=3:
             groupby2=grby[2]
             groupby2['day']=groupby2[d]
-            group_by[groupby2[d]]=groupby2['total']
             mn_list.append(groupby2)
-        else:
-            return mn_list         
         if len(grby)>=4:
             groupby3=grby[3]
             groupby3['day']=groupby3[d]
-            group_by[groupby3[d]]=groupby3['total']
             mn_list.append(groupby3)
-        else:
-            return mn_list
         if len(grby)>=5:
             groupby4=grby[4]
             groupby4['day']=groupby4[d]
-            group_by[groupby4[d]]=groupby4['total']
             mn_list.append(groupby4)
-        else:
-            return mn_list
         if len(grby)>=6:
-            groupb5=grby[5]
+            groupby5=grby[5]
             groupby5['day']=groupby5[d]
-            group_by[groupby5[d]]=groupby5['total']
             mn_list.append(groupby5)
-        else:
-            return mn_list
         if len(grby)>=7:
             groupby6=grby[6]
             groupby6['day']=groupby6[d]
-            group_by[groupby6[d]]=groupby6['total']
             mn_list.append(groupby6)
-        else:
-            return mn_list
+        
+        od1=Oder.objects.filter(month=today.month,dining="製造").all()
+        dy=today.day
+        d='day'+str(dy)
+        groupby10={}
+        groupby11={}
+        groupby12={}
+        groupby13={}
+        groupby14={}
+        groupby15={}
+        groupby16={}
+        grby1 = od1.values(d,'dining').annotate(total=Count(d))
+        #grbyはオブジェクト型要素の配列となり、変数を使用できないのでオブジェクト型を用意して入れ替える
+        if len(grby1)>=1:
+            groupby10=grby1[0]
+            groupby10['day']=groupby10[d]
+            mn_list.append(groupby10)
+        if len(grby1)>=2:
+            groupby11=grby1[1]
+            groupby11['day']=groupby11[d]
+            mn_list.append(groupby11)
+        if len(grby1)>=3:
+            groupby12=grby1[2]
+            groupby12['day']=groupby12[d]
+            mn_list.append(groupby12)
+        if len(grby1)>=4:
+            groupby13=grby1[3]
+            groupby13['day']=groupby13[d]
+            mn_list.append(groupby13)
+        if len(grby1)>=5:
+            groupby14=grby1[4]
+            groupby14['day']=groupby14[d]
+            mn_list.append(groupby14)
+        if len(grby1)>=6:
+            groupby15=grby1[5]
+            groupby15['day']=groupby15[d]
+            mn_list.append(groupby15)
+        if len(grby1)>=7:
+            groupby16=grby1[6]
+            groupby16['day']=groupby16[d]
+            mn_list.append(groupby16)
+        print(mn_list)
         return mn_list
 
     def get_context_data(self, **kwargs):
+        od=Oder.objects.filter(month=today.month,dining="総務").all()
         day = today.day        
         context = super().get_context_data(**kwargs)
         context['dy'] = day
@@ -860,55 +883,46 @@ class DetaiView(ListView):
         groupby6={}
         group_by={}
         mn_list=[]
-        grby2 = od.values('id').all()
-        grby = od.values('username',d).annotate(total=Count(d))
+        grby = od.values('dining','username',d).annotate(total=Count(d))
         #grbyはオブジェクト型要素の配列となり、変数を使用できないのでオブジェクト型を用意して入れ替える
-        print(grby2)
         print(grby)
         if len(grby)>=1:
             groupby=grby[0]
             groupby['day']=groupby[d]
-            group_by[groupby[d]]=groupby['total']
             mn_list.append(groupby)
         if len(grby)>=2:
             groupby1=grby[1]
             groupby1['day']=groupby1[d]
-            group_by[groupby1[d]]=groupby1['total']
             mn_list.append(groupby1)
         else:
             return mn_list
         if len(grby)>=3:
             groupby2=grby[2]
             groupby2['day']=groupby2[d]
-            group_by[groupby2[d]]=groupby2['total']
             mn_list.append(groupby2)
         else:
             return mn_list         
         if len(grby)>=4:
             groupby3=grby[3]
             groupby3['day']=groupby3[d]
-            group_by[groupby3[d]]=groupby3['total']
             mn_list.append(groupby3)
         else:
             return mn_list
         if len(grby)>=5:
             groupby4=grby[4]
             groupby4['day']=groupby4[d]
-            group_by[groupby4[d]]=groupby4['total']
             mn_list.append(groupby4)
         else:
             return mn_list
         if len(grby)>=6:
-            groupb5=grby[5]
+            groupby5=grby[5]
             groupby5['day']=groupby5[d]
-            group_by[groupby5[d]]=groupby5['total']
             mn_list.append(groupby5)
         else:
             return mn_list
         if len(grby)>=7:
             groupby6=grby[6]
             groupby6['day']=groupby6[d]
-            group_by[groupby6[d]]=groupby6['total']
             mn_list.append(groupby6)
         else:
             return mn_list
