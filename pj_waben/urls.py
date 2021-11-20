@@ -21,6 +21,7 @@ from django.contrib.auth.decorators import login_required
 index_view = views.IndexView.as_view()
 
 urlpatterns = [
+    path('send/',views.SendView.as_view(),name='send'),
     path('detai/',views.DetaiView.as_view(),name='detai'),
     path('total/',views.TotalView.as_view(),name='total'),
     path('fix/',views.FixView.as_view(),name="fix"),

@@ -18,7 +18,12 @@
           <td>個</td>
         </tr>
     {% endfor %}
+      <dv>
         <a href="{% url 'detai' %}">内訳</a>
+      </dv>
+      <dv>
+        <a href="{% url 'send' %}">送信</a>
+      </dv>
       </tbody>
     </table>     
     <a class="logout" href="{% url 'logout' %}">ログアウト</a>
