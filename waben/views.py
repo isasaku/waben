@@ -1013,7 +1013,7 @@ class SendView(View):
         header = 'いつもお世話になっております。\n 今日の注文は\n'
         h1 = '　製造\n'
         h2 = '　総務　'
-        footer = 'です。\n以上よろしくお願いいたします。'
+        footer = 'です。\n以上よろしくお願いいたします。\n旭エスケービー株式会社'
         for key,value in seizou_grby.items():
             seizou += ' '
             seizou += key
