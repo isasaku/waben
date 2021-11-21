@@ -4,3 +4,6 @@ whitenoise
 dj-database-url
 python-dotenv
 psycopg2-binary
+datetime
+calendar
+apscheduler
