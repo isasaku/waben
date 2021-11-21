@@ -19,7 +19,15 @@ class IndexView(View):
         form = OderForm()
         context = {}
         context['form'] = form
-        return render(request, 'registration/index.html', context)
+        nm = request.user
+        mn = today.month
+        if Oder.objects.filter(
+            name=nm,
+            month=mn,
+            ).exists():
+            return redirect('check')
+        else:
+            return render(request, 'registration/index.html', context)
 
     def post(self, request, *args, **kwargs):
         if request.POST.get('dining') != None:        
@@ -228,7 +236,7 @@ class IndexView(View):
                 day29=d29,
                 day30=d30,
                 day31=d31,
-            )
+            )        
         return redirect('check')
                
 class NextView(CreateView):
@@ -237,9 +245,25 @@ class NextView(CreateView):
     model = Oder
     success_url = reverse_lazy('check2')
 
+    def get(self,request, *args, **kwargs):
+        form = OderForm()
+        context = {}
+        context['form'] = form
+        if today.month!=12:
+            mn=today.month+1
+        else:
+            mn=1
+        nm = request.user
+        if Oder.objects.filter(
+            name=nm,
+            month=mn,
+            ).exists():
+            return redirect('check2')
+        else:
+            return render(request, 'registration/index2.html', context)
+
     def post(self, request, *args, **kwargs):
-        if request.POST.get('dining') != None:        
-            din = request.POST.get('dining')
+        
         if request.POST.get('day1') != None:        
             d1 = request.POST.get('day1')
         else:
@@ -375,7 +399,6 @@ class NextView(CreateView):
             month=mn,
             ).exists():
             od = Oder.objects.get(name=nm,month=mn)
-            od.dining = din        
             od.day1 = d1
             od.day2 = d2
             od.day3 = d3
@@ -412,7 +435,6 @@ class NextView(CreateView):
             print(str(od))
         else:
             Oder.objects.create(
-                dining=din,
                 name=nm,
                 username=un,
                 month=mn,

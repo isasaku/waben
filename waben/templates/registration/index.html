@@ -27,12 +27,11 @@
         <dv class="header4">ひ：日替わり弁当　こ：こだわり　丼：丼物　ラ：ラーメン　う：うどん　そ：そば　欠：欠食
         </dv>
         <input class="save" type="submit" value="保存">
-        <dv class="header3">食堂選択
+        <dv class="header3">
+          <dv class="blink">食堂選択</dv>
           <input class="dining" name="dining" type="radio" value="製造" />製造
           <input class="dining" name="dining" type="radio" value="総務" checked />総務
         </dv> 
-      </form>
-        <dv class="header5"><a href="{% url 'total' %}">今日の注文</a>
-        </dv>      
+      </form>              
 </body>
 </html>

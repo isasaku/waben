@@ -198,7 +198,15 @@ input{
   float:left;
   width:215px;
   height:80px;
-
+}
+.blink{
+  height: 24px;
+  width: 90px;
+  animation:blinkAnimeS2 2s infinite alternate;
+}
+@keyframes blinkAnimeS2{
+  0%{color: rgb(248, 61, 61); background:white}
+  100%{color: white; background:rgb(248, 61, 61)}
 }
 .header4{
   margin-top:30px;

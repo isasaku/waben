@@ -62,7 +62,10 @@
         {% endfor %}        
          
       </table>
-      <a class="fix" href="{% url 'fix' %}">修正</a>            
+      <a class="fix" href="{% url 'fix' %}">今月の修正</a>
+      <a class="fix" href="{% url 'next' %}">来月の入力、修正</a>
       <a class="logout" href="{% url 'logout' %}">ログアウト</a>
+      <dv class=""><a href="{% url 'total' %}">今日の注文</a>
+      </dv>
 </body>
 </html>

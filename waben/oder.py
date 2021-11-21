@@ -6,9 +6,22 @@ from apscheduler.schedulers.background import BackgroundScheduler
 
 today = datetime.date.today()
 
+def dele():
+    if today.month!=1:
+        mn_p=today.month-1
+    else:
+        mn_p=12
+    if Oder.objects.filter(
+            month=mn_p,
+            ).exists():
+            od_p=Oder.objects.get(month=mn_p).all()
+            od_p.delete()
+            
 def mailsend():
     od=Oder.objects.filter(month=today.month,dining="総務").all()
     dy=today.day
+    if dy==1:
+        dele()
     d='day'+str(dy)
     groupby={}
     groupby1={}
