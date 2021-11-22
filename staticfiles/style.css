@@ -1,0 +1,220 @@
+header > p {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+  color: #ffffff;
+  font-size: 36px;
+  font-weight: bold;
+  padding: 40px 0 50px;
+}
+
+header > p:after {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 148px;
+  height: 50px;
+  bottom: -16px;
+  right: -10px;
+  background-size: 50px 136px;
+  background-repeat: no-repeat;
+  background-image: url('/images/wanko.svg');
+}
+
+.header-nav {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 700px;
+  max-width: 1200px;
+  padding: 0 20px;
+  margin: 0 auto;
+  height: 80px;
+}
+
+.header-nav > a {
+  color: #2B546A;
+  font-weight: bold;
+}
+
+.header-nav p {
+  padding-left: 30px;
+  font-size: 15px;
+  color: #2B546A;
+  font-weight: bold;
+  word-wrap: break-word;
+  opacity: 0.7;
+  flex: 1;
+}
+
+.header-nav ul {
+  text-align: right;
+  display: flex;
+}
+
+.header-nav li > a {
+  white-space: nowrap;
+  display: inline-block;
+  font-size: 15px;
+  color: #2B546A;
+  font-weight: bold;
+  padding-left: 30px;
+}
+.wrapper{
+  max-width: 600px;
+  margin: 0 auto;
+  color: #666;
+}
+#header {
+  text-align: center;
+  font-size: 24px;
+  width: 100%;
+  margin: 1rem 0 0;
+}
+a{
+  color:white;
+}
+/*カレンダー*/
+#calendar {
+  text-align: center;
+  width: 100%;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+th {
+  color: #000;
+}
+th, td {
+  border: 1px solid #ddd;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+/*日曜日*/
+td:first-child {
+  color: red;
+}
+/*土曜日*/
+td:last-child {
+  color: blue;
+}
+/*前後月の日付*/
+td.disabled {
+  color: #ccc;
+}
+/*本日*/
+td.today {
+  background-color: #D65E72;
+  color: #fff;
+}
+.fix{
+  background-color:rgb(116, 107, 247);
+  width:120px;
+  text-align:center;
+  border-radius: 4px;
+  float:left;
+  opacity:0.5;
+}
+.fix a{
+  text-decoration:none;
+}
+.fix_n{
+  background-color:rgb(116, 107, 247);
+  width:120px;
+  text-align:center;
+  border-radius: 4px;
+  float:left;
+  margin-left:10px;
+  opacity:0.5;
+}
+.fix_n a{
+  text-decoration:none;
+}
+/*ボタン*/
+#next-prev-button {
+  clear:both;
+  position: relative;
+}
+#next-prev-button a{
+  cursor: pointer;
+  background: #B78D4A;
+  color: #fff;
+  border: 1px solid #B78D4A;
+  border-radius: 4px;
+  font-size: 1rem;
+  padding: 0.5rem 2rem;
+  margin: 1rem 0;
+  text-decoration:none;
+}
+#next-prev-button button:hover{
+  background-color: #D4BB92;
+  border-color: #D4BB92;
+}
+#prev {
+  float: left;
+}
+#next {
+  float: right;
+}
+td:first-child,
+td.holiday{
+    color: red;
+}
+td{
+  width:2em;
+}
+.total{
+  text-decoration:none;
+  color:#2B546A;
+  font-size:20px;
+}
+input{
+  margin-left:10px;
+}
+.save{
+  display:block;
+  background-color:rgb(174, 199, 30);
+  float:left;
+  margin-top: 30px;
+  width:80px;
+  height:70px;
+  text-align:center;            
+  border-radius: 4px;
+  box-shadow: 0 10px #4b6809;
+  cursor:pointer;
+  justify-content: center;
+  text-decoration:none;
+}
+.save:active{    
+  position:relative;
+  top:10px;
+  box-shadow:none;    
+}
+.header3{
+  margin-top:30px;
+  float:left;
+  width:215px;
+  height:80px;
+}
+.blink{
+  height: 24px;
+  width: 90px;
+  animation:blinkAnimeS2 2s infinite alternate;
+}
+@keyframes blinkAnimeS2{
+  0%{color: rgb(248, 61, 61); background:white}
+  100%{color: white; background:rgb(248, 61, 61)}
+}
+.header4{
+  margin-top:30px;
+  float:left;
+  width:280px;
+  height:80px;
+}
+
+
+
+
